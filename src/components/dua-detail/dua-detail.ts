@@ -11,12 +11,7 @@ import { DuaServiceProvider } from '../../providers/dua-service/dua-service';
 import { DuaDataProvider } from '../../providers/dua-data/dua-data';
 import { DuaConstantProvider } from '../../providers/dua-constant/dua-constant';
 
-/**
- * Generated class for the DuaDetailComponent component.
- *
- * See https://angular.io/docs/ts/latest/api/core/index/ComponentMetadata-class.html
- * for more info on Angular Components.
- */
+
 @Component({
   selector: 'dua-detail',
   templateUrl: 'dua-detail.html'
@@ -154,13 +149,7 @@ export class DuaDetailComponent implements OnInit{
       this.bismillAllah = this.duaData[index].aya[0].bismial;
       this.filename = this.duaData[index].aya[0].mp3_file_path;
 
-      //let temp = this.favoriteArray.filter(dua => dua == this.duaIndex);
-     // if(temp.length == 0){
-      //  this.isFavorite = false;  
-      //}
-     // else{
-      //  this.isFavorite = true; 
-     // }
+     
 
     }
     catch(e){
@@ -244,49 +233,13 @@ presentActionSheet() {
           this.file.play();
       }
      this.isPlay = !this.isPlay;
-    //this.isPlay = !this.isPlay;
-        // pause the file
-        //file.pause();
-
-        // get current playback position
-        //file.getCurrentPosition().then((position) => {
-        //  console.log(position);
-        //});
-
-        // get file duration
-        //let duration = file.getDuration();//
-        //console.log(duration);
-
-        // skip to 10 seconds (expects int value in ms)
-        //file.seekTo(10000);
-
-        // stop playing the file
-        //file.stop();
-
-        // release the native audio resource
-        // Platform Quirks:
-        // iOS simply create a new instance and the old one will be overwritten
-        // Android you must call release() to destroy instances of media when you are done
-        //file.release();
+    
 
      }
 
     stopDua(fileName: String){
       this.isPlay = false;
-        //this.file = this.media.create('assets/mp3/'+fileName);
-
-        // to listen to plugin events:
-
-        //this.file.onStatusUpdate.subscribe(status => console.log(status)); // fires when file status changes
-
-        //this.file.onSuccess.subscribe(() => console.log('Action is successful'));
-
-        //this.file.onError.subscribe(error => console.log('Error!', error));
-
-        // play the file
-        //this.file.play();
-
-        // pause the file
+       
         try{
           this.file.pause();
         }
@@ -294,26 +247,7 @@ presentActionSheet() {
           
         }
 
-        // get current playback position
-        //file.getCurrentPosition().then((position) => {
-        //  console.log(position);
-        //});
-
-        // get file duration
-        //let duration = file.getDuration();//
-        //console.log(duration);
-
-        // skip to 10 seconds (expects int value in ms)
-        //file.seekTo(10000);
-
-        // stop playing the file
-        //file.stop();
-
-        // release the native audio resource
-        // Platform Quirks:
-        // iOS simply create a new instance and the old one will be overwritten
-        // Android you must call release() to destroy instances of media when you are done
-        //file.release();
+      
     
       }
 
@@ -327,52 +261,7 @@ onError(data){
   console.log(data);
   this.isPlay = !this.isPlay;
 }
-   //loadDua(){
-
-    // this.nativeAudio.preloadSimple('uniqueId1', 'assets/mp3/bismillah.mp3').then(this.onSuccess, this.onError);
-
-    // this.nativeAudio.play('uniqueId1', () => console.log('uniqueId1 is done playing'));
-      //var t = JSON.parse(this.jsonObject);
-      //console.log(t);
-      //console.log(JSON.stringify(this.jsonObject));
-          // Get all comments
-    //  var json =   this.duaServiceProvider.getDUA()
-    //                       .subscribe(data => {
-//
-//
-  //        console.log(data);
-    //    this.ayah =  data.verses['977']['2'].ayah.text
-//
-//
-//
-  //      },(err) => {console.log(err);
-    //          ;
-//
-//
-  //     }
-  //  );
-
-   // var json =   this.duaServiceProvider.getDUAList()
-   // .subscribe(data => {//
-//
-//
-  //    console.log(data);
-      
-//
-//
-//
-  //    },(err) => {console.log(err);
-    //  ;
-
-//
-  //    }
-    //  );
-
-
-    //
-     // console.log(json);
-   // }
-
+  
 
 
 }

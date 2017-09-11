@@ -56,7 +56,7 @@ export class FavoriteComponent implements OnInit{
     
     }
     goToSlide() {
-        //this.slides.slideTo(2, 500);
+       
         console.log(this.duas);
       }
   
@@ -66,8 +66,7 @@ export class FavoriteComponent implements OnInit{
       
       this.loadDataSlideData(currentIndex);
       this.isPlay = false;
-      //this.file.pause();
-      //this.file.release()
+      
        
     }
   
@@ -109,34 +108,12 @@ export class FavoriteComponent implements OnInit{
 
 
 
-    /*   this.duaServiceProvider.getDUAList()
-        .subscribe(data => {
-            //this.duaListArray = data['Dua'];
-            for(let item of data['Dua'].anbiya){
-                for(let dua of item.dua){  
-                  for(let aya in dua.aya){  
-                    //let temp = this.favoriteArray.filter(favId => favId == dua.aya[aya].index);
-                    //if(temp.lenght > 0){
-                      this.tmpDuaListArray.push(dua.aya[aya]);
-                    //}
-                    
-                }
-              }
-            }
-            this.loadData();
-             },
-         (err) => {console.log(err);
-      
-      
-          }
-          );*/
           this.storage.get('anbiya').then((val) => {
             if (val != null){
                 for(let item of val){
                   for(let dua of item.dua){  
                     for(let aya in dua.aya){  
-                      //let temp = this.favoriteArray.filter(favId => favId == dua.aya[aya].index);
-                      //if(temp.lenght > 0){
+                    
                         this.tmpDuaListArray.push(dua.aya[aya]);
                       //}
                       
@@ -183,11 +160,8 @@ export class FavoriteComponent implements OnInit{
     }
 
     unFavorite(){
-      debugger;
       this.isFavorite = false;
-      //this.favoriteArray.slice(this.duaIndex);
       var i = this.favoriteArray.indexOf(this.index);
-      //this.favoriteArray = this.favoriteArray.splice(this.duaIndex, 1)
       if(i != -1) {
         this.favoriteArray.splice(i, 1);
       }
@@ -195,7 +169,6 @@ export class FavoriteComponent implements OnInit{
     }
   
     favorite(){
-      debugger;;
       this.favoriteArray.push(this.index);
       this.storage.set('favoriteArrayStore', this.favoriteArray);
       this.isFavorite = true;
@@ -263,11 +236,7 @@ export class FavoriteComponent implements OnInit{
         this.chapterName = this.duaListArray[index].chapter_name;
         this.chapterNo = this.duaListArray[index].chapter_no;
         this.ayah = this.duaListArray[index].arabic;
-       
-        //this.duaIndex = duaListArray this.duaData[index].aya[0].index;
-    
-  
-       
+         
         this.bismillAllah = this.duaListArray[index].bismial;
         this.filename = this.duaListArray[index].mp3_file_path;
 
@@ -301,49 +270,13 @@ export class FavoriteComponent implements OnInit{
             this.file.play();
         }
        this.isPlay = !this.isPlay;
-      //this.isPlay = !this.isPlay;
-          // pause the file
-          //file.pause();
-  
-          // get current playback position
-          //file.getCurrentPosition().then((position) => {
-          //  console.log(position);
-          //});
-  
-          // get file duration
-          //let duration = file.getDuration();//
-          //console.log(duration);
-  
-          // skip to 10 seconds (expects int value in ms)
-          //file.seekTo(10000);
-  
-          // stop playing the file
-          //file.stop();
-  
-          // release the native audio resource
-          // Platform Quirks:
-          // iOS simply create a new instance and the old one will be overwritten
-          // Android you must call release() to destroy instances of media when you are done
-          //file.release();
+     
   
        }
   
       stopDua(fileName: String){
         this.isPlay = false;
-          //this.file = this.media.create('assets/mp3/'+fileName);
-  
-          // to listen to plugin events:
-  
-          //this.file.onStatusUpdate.subscribe(status => console.log(status)); // fires when file status changes
-  
-          //this.file.onSuccess.subscribe(() => console.log('Action is successful'));
-  
-          //this.file.onError.subscribe(error => console.log('Error!', error));
-  
-          // play the file
-          //this.file.play();
-  
-          // pause the file
+         
           try{
             this.file.pause();
           }
@@ -351,26 +284,7 @@ export class FavoriteComponent implements OnInit{
 
           }
   
-          // get current playback position
-          //file.getCurrentPosition().then((position) => {
-          //  console.log(position);
-          //});
-  
-          // get file duration
-          //let duration = file.getDuration();//
-          //console.log(duration);
-  
-          // skip to 10 seconds (expects int value in ms)
-          //file.seekTo(10000);
-  
-          // stop playing the file
-          //file.stop();
-  
-          // release the native audio resource
-          // Platform Quirks:
-          // iOS simply create a new instance and the old one will be overwritten
-          // Android you must call release() to destroy instances of media when you are done
-          //file.release();
+         
       
         }
   
@@ -383,53 +297,6 @@ export class FavoriteComponent implements OnInit{
     console.log(data);
     this.isPlay = !this.isPlay;
   }
-     //loadDua(){
-  
-      // this.nativeAudio.preloadSimple('uniqueId1', 'assets/mp3/bismillah.mp3').then(this.onSuccess, this.onError);
-  
-      // this.nativeAudio.play('uniqueId1', () => console.log('uniqueId1 is done playing'));
-        //var t = JSON.parse(this.jsonObject);
-        //console.log(t);
-        //console.log(JSON.stringify(this.jsonObject));
-            // Get all comments
-      //  var json =   this.duaServiceProvider.getDUA()
-      //                       .subscribe(data => {
-  //
-  //
-    //        console.log(data);
-      //    this.ayah =  data.verses['977']['2'].ayah.text
-  //
-  //
-  //
-    //      },(err) => {console.log(err);
-      //          ;
-  //
-  //
-    //     }
-    //  );
-  
-     // var json =   this.duaServiceProvider.getDUAList()
-     // .subscribe(data => {//
-  //
-  //
-    //    console.log(data);
-        
-  //
-  //
-  //
-    //    },(err) => {console.log(err);
-      //  ;
-  
-  //
-    //    }
-      //  );
-  
-  
-      //
-       // console.log(json);
-     // }
-  
-  
-  
+     
   }
   

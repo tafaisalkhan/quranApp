@@ -72,35 +72,11 @@ loadDua(){
           );
         }
 
-       // this.admobFree.banner.prepare()
-       // .then(() => {
-         // this.admobFree.banner.show();
-       // })
-       // .catch(e => console.log(e));
+       
         console.log(this.duaListArray);
   });
 
 
-  /*this.duaServiceProvider.getDUAList()
-  .subscribe(data => {
-      this.duaListArray = data['Dua'].anbiya;
-      this.completeData = data;
-      debugger;
-  
-      this.admobFree.banner.prepare()
-      .then(() => {
-        this.admobFree.banner.show();
-      })
-      .catch(e => console.log(e));
-      console.log(this.duaListArray);
-      
-
-    },
-   (err) => {console.log(err);
-
-
-    }
-    );*/
     if (this.plt.is('iphone')) {
       // This will only print when on iOS
       console.log('I am an mobile device!');
@@ -135,11 +111,7 @@ loadDua(){
 
   itemTapped(evnet :any , item: any){
     
-    //console.log(this.nativeStorage.getItem('item')
-    //.then(
-    //  data => console.log(data),
-    //  error => console.error(error)
-   // ));
+    
     
     this.navCtrl.push(DuaDetailComponent, {
       item: item
