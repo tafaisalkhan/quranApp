@@ -1,0 +1,131 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+    <ion-title>Dua Ul Anbiya (AS)</ion-title>
+
+    <ion-buttons end>
+
+
+    </ion-buttons>
+
+  </ion-navbar>
+  <ion-toolbar  >
+      <ion-buttons start  (tap)="shareDUA()">
+          <button ion-button icon-only >
+              <ion-icon name="share"></ion-icon>
+            
+          </button>
+        </ion-buttons>  
+      <ion-title>{{name}} </ion-title>
+      <ion-buttons end (tap)="playDua()" *ngIf="!isPlay">
+        <button ion-button icon-only >
+          <ion-icon name="play"></ion-icon>
+        </button>
+      </ion-buttons>
+      <ion-buttons end (tap)="stopDua()" *ngIf="isPlay">
+          <button ion-button icon-only >
+            <ion-icon name="pause"></ion-icon>
+          </button>
+        </ion-buttons>
+      
+        <ion-buttons end *ngIf="isFavorite" (tap)="unFavorite()" >
+            <button ion-button icon-only >
+               
+                <ion-icon name="star" *ngIf="isFavorite" (click)="favorite()"></ion-icon>
+            </button>
+          </ion-buttons> 
+          <ion-buttons end *ngIf="!isFavorite" (tap)="favorite()">
+              <button ion-button icon-only >
+                  <ion-icon name="star-outline"></ion-icon>
+                
+              </button>
+            </ion-buttons>  
+    </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding style="padding: 0px; background-color: #B2DFDB;">
+
+<ion-card>
+
+ 
+   <!-- <button ion-button color="secondary" round  (click)="playDua()">Light</button> -->
+ 
+
+ <!-- <ion-card-content style="font-size: larger; font-weight: 900;">
+     
+          <ion-item style="font-size: larger; font-weight: 900;">
+          -->
+          <ion-card-content [ngClass]="platform=='small'? 'small-font' : 'large-font'">
+              
+                   <ion-item [ngClass]="platform=='small'? 'small-font' : 'large-font'">
+          
+              {{name}}
+             
+            <div  clear item-end> {{arabicName}}</div>
+          </ion-item>
+       
+     
+  </ion-card-content>
+
+</ion-card>
+  <ion-slides  (ionSlideDidChange)="slideChanged()" pager>
+    <ion-slide *ngFor="let item of  duaData; let i = index">
+
+      <div style="height:100%;overflow: scroll ">
+        <ion-card>
+            <!--<ion-item style="font-size: larger; font-weight: 900;">
+            -->
+            <ion-item [ngClass]="platform=='small'? 'detail-small-font' : 'detail-large-font'">
+            
+                Chapter {{chapterName}} ({{chapterNo}}) 
+               
+              <div  clear item-end>   Verse no:  {{ayah_no}}</div>
+            </ion-item>
+          
+          <ion-card-content>
+           <p [style.font-size]="sizeStore"> 
+          <!--  <p style= "font-size: xx-large"> -->
+                {{bismillAllah}}
+                <br/>
+                <br/>
+                {{ayah}}
+            <br/>
+            <br/>
+            <br/>
+                {{translation}}
+            </p>
+          </ion-card-content>
+
+
+
+          </ion-card>
+        </div>
+
+
+
+
+    </ion-slide>
+   
+  </ion-slides>
+</ion-content>
+
+<!--
+<ion-footer>
+  <ion-toolbar>
+
+
+<ion-title  >
+  <button ion-button >
+  <ion-icon name="play" (click)="playDua()" *ngIf="!isPlay" ></ion-icon>
+  <ion-icon name="pause" (click)="stopDua()" *ngIf="isPlay"></ion-icon>
+</button>
+</ion-title>
+
+  </ion-toolbar>
+</ion-footer>
+-->

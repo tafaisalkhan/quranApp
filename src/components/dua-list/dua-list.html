@@ -1,0 +1,59 @@
+
+<ion-header>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu" ></ion-icon>
+    </button>
+    <ion-title>Dua Ul Anbiya (AS) </ion-title>
+
+    <ion-buttons end>
+
+
+    </ion-buttons>
+
+  </ion-navbar>
+
+
+</ion-header>
+
+
+<ion-content padding style="padding: 0px;  background-color: #B2DFDB;">
+
+          <div >
+
+              <ion-card  style="background-color: #64B5F6; text-align: center;" *ngIf="duaListArray.length == 0">
+                  
+                  <ion-spinner icon="spiral"></ion-spinner>
+                  
+              <ion-card-content   [ngClass]="platform=='small'? 'small-font' : 'large-font'">
+             
+               </ion-card-content>
+                  
+                      </ion-card>
+          <ion-card *ngFor="let item of  duaListArray; let i = index" (click)="itemTapped($event, item, i)" (tab)="itemTapped($event, item, i)" style="background-color: #64B5F6;">
+      
+          
+      
+         <!--     <ion-card-content  style="background-color: #64B5F6;font-size: larger; font-weight: 900;">
+                  <ion-item style="background-color: #64B5F6;font-size: larger; font-weight: 900;">
+                  -->
+                  <ion-card-content   [ngClass]="platform=='small'? 'small-font' : 'large-font'">
+                      <ion-item  [ngClass]="platform=='small'? 'small-font' : 'large-font'">
+                 
+                      {{item.name}} 
+                     
+                    <div  clear item-end>   {{item.arabic_name}}</div>
+                  </ion-item>
+              
+                
+                <!-- Add card content here! -->
+                <!--<button ion-button color="secondary" round  (click)="duaList()">Light</button> -->
+              </ion-card-content>
+      
+          </ion-card>
+        </div> 
+
+   
+</ion-content>
+
+
