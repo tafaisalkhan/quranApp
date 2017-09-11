@@ -8,12 +8,7 @@ import {Observable} from 'rxjs/Rx';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { DuaDataProvider } from '../dua-data/dua-data';
-/*
-  Generated class for the DuaServiceProvider provider.
 
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular DI.
-*/
 @Injectable()
 export class DuaServiceProvider {
 
